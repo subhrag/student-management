@@ -1,10 +1,10 @@
-package com.student.management.persistence;
+package com.student.management.service.impl;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class AddressServiceImpl 
 {
     public static void main( String[] args )
     {
