@@ -1,8 +1,10 @@
 package com.student.management.service;
 
-/**
- * Hello world!
- *
- */
-public class AddressService {
+import com.student.management.persistence.dto.Address;
+
+public interface AddressService {
+	
+	void addAddress(Address address) ;
+//	Address getAddressByStudentId(int id);
+	
 }

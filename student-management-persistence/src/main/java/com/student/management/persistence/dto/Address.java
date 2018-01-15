@@ -1,28 +1,35 @@
 package com.student.management.persistence.dto;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "STUDENT_ADDRESS")
-public class Address {
+public class Address  {
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private int aId;
 	
+	@Column(name = "ADDRESS_ID")
+	private int addressId;
 	
 	@Column(name = "ADDRESS_LINE1")
 	private String addrs1;
 	@Column(name = "ADDRESS_LINE2")
 	private String addrs2;
-	@Column(name = "STATE")
+	/*@Column(name = "STATE")
 	private String state;
 	@Column(name = "COUNTRY")
 	private String country;
-	
+	*/
 	public int getaId() {
 		return aId;
 	}
@@ -41,7 +48,7 @@ public class Address {
 	public void setAddrs2(String addrs2) {
 		this.addrs2 = addrs2;
 	}
-	public String getState() {
+	/*public String getState() {
 		return state;
 	}
 	public void setState(String state) {
@@ -60,5 +67,11 @@ public class Address {
 		this.pincode = pincode;
 	}
 	private String pincode;
-	
+	*/
+	public int getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
 }

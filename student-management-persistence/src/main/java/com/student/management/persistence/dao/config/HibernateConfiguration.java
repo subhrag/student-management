@@ -1,5 +1,7 @@
 package com.student.management.persistence.dao.config;
 
+import java.util.Properties;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -20,10 +22,14 @@ public class HibernateConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
 		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = 
 				new LocalContainerEntityManagerFactoryBean();
+		//Properties properties = new Properties();
+	      //properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
 		hibernateJpaVendorAdapter.setGenerateDdl(true);
 		hibernateJpaVendorAdapter.setDatabase(Database.POSTGRESQL);
 		hibernateJpaVendorAdapter.setShowSql(true);
+		//localContainerEntityManagerFactoryBean.setJpaProperties(properties);
+		
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
 		localContainerEntityManagerFactoryBean.setDataSource(dataSource());
 		localContainerEntityManagerFactoryBean.setPackagesToScan("com.student.management.persistence.dto");

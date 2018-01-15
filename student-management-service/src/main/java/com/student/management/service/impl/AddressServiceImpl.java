@@ -1,13 +1,29 @@
 package com.student.management.service.impl;
 
-/**
- * Hello world!
- *
- */
-public class AddressServiceImpl 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.student.management.persistence.dao.AddressDao;
+import com.student.management.persistence.dto.Address;
+import com.student.management.service.AddressService;
+
+@Service
+public class AddressServiceImpl  implements AddressService {
+
+	@Autowired
+	public AddressDao addrsDao;
+	
+	@Override
+	public void addAddress(Address address) {
+
+		addrsDao.addAddress(address);
+		
+	}
+
+	/*@Override
+	public Address getAddressByStudentId(int id) {
+		Address address = addrsDao.getAddressByStudentId(id);
+		return address;
+	}*/
+	
 }
