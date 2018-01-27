@@ -8,14 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "STUDENT_ADDRESS")
 public class Address  {
 
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
+	@Id 
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator="identity")
+    @GenericGenerator(name="identity", strategy="identity")
+	@Column(name = "ID", nullable = false)
 	private int aId;
 	
 	@Column(name = "ADDRESS_ID")
@@ -30,6 +37,19 @@ public class Address  {
 	@Column(name = "COUNTRY")
 	private String country;
 	*/
+	/*@ManyToOne
+	@JoinColumn(name = "STUDENT_ID", nullable = false )
+	private Student student;*/
+	
+	public Address() {}
+	
+	
+	/*public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}*/
 	public int getaId() {
 		return aId;
 	}

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.student.management.persistence.dto.Address;
@@ -29,9 +30,10 @@ public class StudentController {
 	
 
 	@GetMapping(value = "/students")
-	public List<Student> getStudents() {
-		
-		return studentService.getStudents();
+	public List<Student> getStudents(@RequestParam (name ="startAge",required=false ) String startAge ,
+			@RequestParam (name = "endAge", required=false) String endAge) {
+		//StringUtil
+		return studentService.getStudents(startAge, endAge);
 		
 	}
 	

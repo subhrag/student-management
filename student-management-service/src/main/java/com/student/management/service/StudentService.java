@@ -10,6 +10,6 @@ public interface StudentService {
 	void addStudent(Student student);
 	Student getStudent(int id) ;
 	List<Address> getAddressByStudentId(int id) ;
-	List<Student> getStudents();
-
+	List<Student> getStudents(String age1, String age2);
+	
 }

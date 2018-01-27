@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,21 +26,27 @@ public class Student  {
 	@Id 
 	@SequenceGenerator(name = "addrs_seq" , sequenceName = "std_addrs_seq" , allocationSize = 1 )
 	@GeneratedValue(generator = "addrs_seq"  ,strategy = GenerationType.SEQUENCE)
-	@Column(name = "ID")
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "STUDENT_ID")
 	private int sId;
 	@Column(name = "FIRST_NAME")
 	private String sFirstName;
 	@Column(name = "LAST_NAME")
 	private String sLastName;
+	@Min(3) @Max(65)
 	@Column(name = "STUDENT_AGE")
 	private int age;
 	/*@Column(name = "STD")
 	private String sClass;
 	@Column(name = "SCHOOL_NAME")
 	private String sSchoolName;*/
-	@OneToMany( cascade = CascadeType.ALL)
-	@JoinColumn(name = "STD_ADDRESS" , nullable = false)
+	//@OneToMany( mappedBy ="student" ,cascade = CascadeType.ALL)	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "student_id")
 	private List<Address> studentAddress;
+	
+	public Student() {}
+	
 	
 	public String getsFirstName() {
 		return sFirstName;

@@ -25,7 +25,7 @@ public class HibernateConfiguration {
 		//Properties properties = new Properties();
 	      //properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-		hibernateJpaVendorAdapter.setGenerateDdl(true);
+		hibernateJpaVendorAdapter.setGenerateDdl(false);
 		hibernateJpaVendorAdapter.setDatabase(Database.POSTGRESQL);
 		hibernateJpaVendorAdapter.setShowSql(true);
 		//localContainerEntityManagerFactoryBean.setJpaProperties(properties);
