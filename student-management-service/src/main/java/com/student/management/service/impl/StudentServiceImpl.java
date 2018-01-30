@@ -20,19 +20,19 @@ import com.student.management.service.StudentService;
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
-	public StudentDao stdDao;
+	private StudentDao studentDao;
 
 	@Override
 	public void addStudent(Student student) {
 
-		stdDao.addStudent(student);
+		studentDao.addStudent(student);
 
 	}
 
 	@Override
 	public List<Student> getStudents(String age1, String age2) {
 
-		List<Student> studentList = (List<Student>) stdDao.getStudents();
+		List<Student> studentList = (List<Student>) studentDao.getStudents();
 
 		if (StringUtils.isNotBlank(age1) && StringUtils.isNotBlank(age2)) {
 			int firstAge = Integer.parseInt(age1);
@@ -57,7 +57,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student getStudent(int id) {
-		Student student = stdDao.getStudent(id);
+		Student student = studentDao.getStudent(id);
 
 		return student;
 	}
