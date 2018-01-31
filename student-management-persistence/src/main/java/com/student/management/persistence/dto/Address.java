@@ -1,18 +1,17 @@
 package com.student.management.persistence.dto;
 
-import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+
+/* student address entity class*/
 
 @Entity
 @Table(name = "STUDENT_ADDRESS")
@@ -23,10 +22,10 @@ public class Address  {
 	@GeneratedValue(generator="identity")
     @GenericGenerator(name="identity", strategy="identity")
 	@Column(name = "ID", nullable = false)
-	private int aId;
-	
-	@Column(name = "ADDRESS_ID")
 	private int addressId;
+	
+	/*@Column(name = "ADDRESS_ID")
+	private int addressId;*/
 	
 	@Column(name = "ADDRESS_LINE1")
 	private String addrs1;
@@ -50,11 +49,11 @@ public class Address  {
 	public void setStudent(Student student) {
 		this.student = student;
 	}*/
-	public int getaId() {
-		return aId;
+	public int getaddressId() {
+		return addressId;
 	}
-	public void setaId(int aId) {
-		this.aId = aId;
+	public void setaddressId(int addressId) {
+		this.addressId = addressId;
 	}
 	public String getAddrs1() {
 		return addrs1;
@@ -88,10 +87,5 @@ public class Address  {
 	}
 	private String pincode;
 	*/
-	public int getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
+	
 }
