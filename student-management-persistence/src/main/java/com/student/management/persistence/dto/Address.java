@@ -19,29 +19,25 @@ import org.hibernate.annotations.GenericGenerator;
 public class Address  {
 
 	@Id 
-	//@GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(generator="identity")
     @GenericGenerator(name="identity", strategy="identity")
 	@Column(name = "ID", nullable = false)
 	private int aId;
 	
+<<<<<<< Updated upstream
 	@Column(name = "ADDRESS_ID")
 	private int addressId;
 	
+=======
+>>>>>>> Stashed changes
 	@Column(name = "ADDRESS_LINE1")
 	private String addrs1;
+	
 	@Column(name = "ADDRESS_LINE2")
 	private String addrs2;
-	/*@Column(name = "STATE")
-	private String state;
-	@Column(name = "COUNTRY")
-	private String country;
-	*/
-	/*@ManyToOne
-	@JoinColumn(name = "STUDENT_ID", nullable = false )
-	private Student student;*/
-	
+
 	public Address() {}
+<<<<<<< Updated upstream
 	
 	
 	/*public Student getStudent() {
@@ -55,19 +51,33 @@ public class Address  {
 	}
 	public void setaId(int aId) {
 		this.aId = aId;
+=======
+
+	public int getAddressId() {
+		return addressId;
 	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+>>>>>>> Stashed changes
+	}
+
 	public String getAddrs1() {
 		return addrs1;
 	}
+
 	public void setAddrs1(String addrs1) {
 		this.addrs1 = addrs1;
 	}
+
 	public String getAddrs2() {
 		return addrs2;
 	}
+
 	public void setAddrs2(String addrs2) {
 		this.addrs2 = addrs2;
 	}
+<<<<<<< Updated upstream
 	/*public String getState() {
 		return state;
 	}
@@ -94,4 +104,10 @@ public class Address  {
 	public void setAddressId(int addressId) {
 		this.addressId = addressId;
 	}
+=======
+	
+	
+	
+	
+>>>>>>> Stashed changes
 }

@@ -1,6 +1,5 @@
 package com.student.management.persistence.dao.impl;
 
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.student.management.persistence.dao.AddressDao;
 import com.student.management.persistence.dto.Address;
-import com.student.management.persistence.dto.Student;
+
 
 @Repository
 @Transactional

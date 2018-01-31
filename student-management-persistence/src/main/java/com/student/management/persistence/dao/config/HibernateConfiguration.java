@@ -1,6 +1,6 @@
 package com.student.management.persistence.dao.config;
 
-import java.util.Properties;
+
 
 import javax.sql.DataSource;
 
@@ -13,6 +13,9 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+/*Hibernate configuration class*/
+
 
 @Configuration
 @EnableTransactionManagement
