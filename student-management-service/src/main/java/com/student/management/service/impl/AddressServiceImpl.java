@@ -11,12 +11,12 @@ import com.student.management.service.AddressService;
 public class AddressServiceImpl  implements AddressService {
 
 	@Autowired
-	public AddressDao addrsDao;
+	public AddressDao addressDao;
 	
 	@Override
 	public void addAddress(Address address) {
 
-		addrsDao.addAddress(address);
+		addressDao.addAddress(address);
 		
 	}
 

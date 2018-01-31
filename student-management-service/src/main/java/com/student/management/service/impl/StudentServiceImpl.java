@@ -16,43 +16,54 @@ import com.student.management.persistence.dto.Address;
 import com.student.management.persistence.dto.Student;
 import com.student.management.service.StudentService;
 
+/*student service implementation class
+*/
+
 @Service
 public class StudentServiceImpl implements StudentService {
+
+	private static final String DEFAULT_START_AGE = "3";
+	private static final String DEFAULT_END_AGE = "65";
 
 	@Autowired
 	private StudentDao studentDao;
 
 	@Override
 	public void addStudent(Student student) {
-
 		studentDao.addStudent(student);
-
 	}
 
 	@Override
-	public List<Student> getStudents(String age1, String age2) {
+	public List<Student> getStudents(String startAge, String endAge) {
 
 		List<Student> studentList = (List<Student>) studentDao.getStudents();
 
-		if (StringUtils.isNotBlank(age1) && StringUtils.isNotBlank(age2)) {
-			int firstAge = Integer.parseInt(age1);
-			int lastAge = Integer.parseInt(age2);
-			List<Student> studentListByAge = new ArrayList<>();
-			if (firstAge > 0 && lastAge >= firstAge) {
-				/*
-				 * for(Student student : studentList) { if(student.getAge()>=firstAge &&
-				 * student.getAge()<=lastAge) { studentListByAge.add(student); } }
-				 */
+		if (StringUtils.isBlank(startAge) && StringUtils.isBlank(endAge)) {
+			return studentList;
 
-				studentListByAge = studentList.stream() // java 8 stream
-						.filter(studentLstByAge -> (studentLstByAge.getAge() >= firstAge
-								&& studentLstByAge.getAge() <= lastAge))
-						.collect(Collectors.toList());
-			}
-			return studentListByAge;
+		} else if (StringUtils.isBlank(startAge) && StringUtils.isNotBlank(endAge)) {
+			startAge = DEFAULT_START_AGE;
+
+		} else if (StringUtils.isNotBlank(startAge) && StringUtils.isBlank(endAge)) {
+			endAge = DEFAULT_END_AGE;
 		}
 
-		return studentList;
+		int firstAge = Integer.parseInt(startAge);
+		int lastAge = Integer.parseInt(endAge);
+		List<Student> studentListByAge = new ArrayList<>();
+
+		if (firstAge > 0 && lastAge >= firstAge) {
+			/*
+			 * for(Student student : studentList) { if(student.getAge()>=firstAge &&
+			 * student.getAge()<=lastAge) { studentListByAge.add(student); } }
+			 */
+
+			studentListByAge = studentList.stream().filter(
+					studentLstByAge -> (studentLstByAge.getAge() >= firstAge && studentLstByAge.getAge() <= lastAge))
+					.collect(Collectors.toList());
+		}
+		return studentListByAge;
+
 	}
 
 	@Override
@@ -66,7 +77,7 @@ public class StudentServiceImpl implements StudentService {
 	public List<Address> getAddressByStudentId(int id) {
 
 		Student student = this.getStudent(id);
-		List<Address> studentAddressList = student.getStudentAddress();
+		List<Address> studentAddressList = student.getAddress();
 		/*
 		 * if(studentAddressList == null || studentAddressList.size()==0) { throw new
 		 * DataNotFoundException("Address doesnot exist for Student Id!"+id); }
